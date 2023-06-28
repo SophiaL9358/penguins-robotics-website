@@ -1,0 +1,1 @@
+export const lightBlueColor = "rgb(81, 165, 242)";
