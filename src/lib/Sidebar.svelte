@@ -4,18 +4,22 @@
 </script>
 
 <div id = "parent_container" class = "align-items-center" style = "background-color: {lightBlueColor};">
-    <div style = "width: 0.75em; height: 35em; position: fixed; background-color: white; margin-left: 2.65em; z-index: 1;"></div>
+    <div style = "height: 5em;">
+
+    </div>
+    <div style = "width: 0.75em; height: 24em; top:7em; position: absolute; background-color: white; margin-left: 2.65em; z-index: 1;"></div>
 
     {#each pageNames as pageName}
-    <a href = "#{pageName}" class = "container-fluid" >
-        <div style = "height: 3em;" class ="sidebar-box ps-4" >
-            <div class = "rounded-circle circle align-middle" style = "width: 3em; height: 3em; z-index: 3;">
+    <a href = "#{pageName}" class = "d-flex mt-4" >
+        <div style = "height: 3em; width: 15.8em; padding-left: 2.25em;" class ="sidebar-box row" >
+            <div class = "rounded-circle circle align-middle" style = "width: 3em; height: 3em;  z-index: 2; display: inline-block">
             </div>
-            <div style = "height: 3em;" class = "ps-3">
+            <span style = "height: 3em; width:max-content;" class = "ps-3 d-flex align-items-center">
                 {pageName}
-            </div>
+            </span>
         </div>
     </a>
+
     {/each}
 
 </div>
@@ -38,7 +42,7 @@
 
     }
     .sidebar-box:hover > .circle{
-        background-color: rgb(81, 165, 242);
+        background-color: rgb(81, 165, 242) !important;
     }
     .sidebar-box:hover {
         color: rgb(81, 165, 242);

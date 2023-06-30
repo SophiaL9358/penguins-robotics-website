@@ -2,3 +2,17 @@ body {
   margin: 0;
   font-family: Verdana, Geneva, Tahoma, sans-serifq;
 }
+
+.bg-purple-main {
+  background-color: #685A8F;
+}
+
+
+.bg-green-main {
+  background-color: #217F7E;
+}
+
+
+a {
+  text-decoration: none;
+}
