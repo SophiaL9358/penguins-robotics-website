@@ -1,6 +1,11 @@
 body {
   margin: 0;
-  font-family: Verdana, Geneva, Tahoma, sans-serifq;
+  font-family: 'Heebo', sans-serif;
+  font-size: 1.1em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Jura', sans-serif;
 }
 
 .bg-purple-main {
@@ -8,13 +13,20 @@ body {
 
 }
 
-
 .bg-green-main {
   background-color: #217F7E;
 }
 
 .bg-green-main-90 {
   background-color: rgba(33, 127, 126, 0.9);
+}
+
+.text-green {
+  color: #126F6E;
+}
+
+.text-purple {
+  color: #685A8F;
 }
 
 

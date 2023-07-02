@@ -6,7 +6,6 @@
     let smallestSize = 991;
     let windowWidth;
     let windowHeight;
-    let navVisible = false;
 
     const setTopbar = () => {
         windowWidth = window.innerWidth;
@@ -20,6 +19,7 @@
             document.getElementById("collapseNav").classList.remove("d-none");
         }
         document.getElementById("collapseNav").style.maxHeight = String(windowHeight - document.getElementById("navbar").offsetHeight) +"px";
+
     };
 
     onMount(setTopbar);
@@ -27,7 +27,8 @@
 
     let button;
     const handleClick = () => {
-        let navbar = document.getElementById('collapseNav');
+        document.getElementById("collapseNav").style.maxHeight = String(windowHeight - document.getElementById("navbar").offsetHeight) +"px";
+
         let navHeight = document.getElementById('collapseNav').style.height;
         if (navHeight != '') { // nav is visible
             document.getElementById("toggle-icon").classList.remove("fa-bars");
@@ -37,6 +38,7 @@
             document.getElementById("toggle-icon").classList.add("fa-bars");
             document.getElementById("toggle-icon").classList.remove("fa-x");
         }
+
     };
 </script>
 <div class = "sticky-top">
@@ -53,7 +55,7 @@
                         <i id = "toggle-icon" class="fa-solid fa-bars"></i>       
                     </button>
             {:else}
-                <div class = "navbar-nav">
+                <div class = "navbar-nav fs-6">
                     <li><a href="#Home">Home</a></li>
                     <li><a href="#Outreach">Outreach</a></li>
                     <li><a href="#Achievements">Achievements</a></li>
@@ -95,7 +97,7 @@
     a {
         color: white;
         height: 100%;
-        padding: 1.75em 1.45em 1.75em 1.45em;
+        padding: 1.5em 1.45em 1.5em 1.45em;
         /*width: 175px;*/
 
         transition: 0.35s;
