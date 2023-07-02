@@ -10,62 +10,92 @@
     const setTopbar = () => {
         windowWidth = window.innerWidth;
         if (windowWidth > smallestSize) {
-            document.getElementById("navbarItems").classList.remove("collapse");
-            navVisible = false;
+            document.getElementById("collapseNav").classList.remove("collapse");
+            document.getElementById("collapseNav").classList.add("d-none");
+            document.getElementById("collapseNav").classList.remove("show");
         } else {
-            document.getElementById("navbarItems").classList.add("collapse");
-            navVisible = true;
+            document.getElementById("collapseNav").classList.add("collapse");
+            document.getElementById("collapseNav").classList.remove("d-none");
         }
     };
 
     onMount(setTopbar);
     addEventListener("resize", setTopbar);
 
-    const handleButtonClick = () => {
-        if (navVisible){
+    let button;
+    const handleClick = () => {
+        let navbar = document.getElementById('collapseNav');
+        let navHeight = document.getElementById('collapseNav').style.height;
+        if (navHeight != '') { // nav is visible
             document.getElementById("toggle-icon").classList.remove("fa-bars");
             document.getElementById("toggle-icon").classList.add("fa-x");
-        } else {
-            document.getElementById("toggle-icon").classList.remove("fa-x");
+
+        } else { // nav is not visible
             document.getElementById("toggle-icon").classList.add("fa-bars");
+            document.getElementById("toggle-icon").classList.remove("fa-x");
         }
-        navVisible = !navVisible;
     };
 </script>
-
-<nav class="navbar navbar-expand-lg bg-green-main sticky-top">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="#Home">#18792</a>
-      </div>
-      <ul class="nav navbar-nav">
-        {#if windowWidth <= smallestSize}
-            <button on:click = {handleButtonClick} class = "btn text-light p-4 fs-5 d-flex justify-content-end"  data-bs-toggle = "collapse" data-bs-target = "#navbarItems">
-                <i id = "toggle-icon" class="fa-solid fa-bars"></i>  
-                          
-            </button>
-        {/if}
-        <div class = " nav navbar-nav collapse" id = "navbarItems">
+<div class = "sticky-top">
+    <nav class="navbar navbar-expand-lg bg-green-main">
+        <div class="container-fluid p-0">
+        <div class="navbar-header ms-4 float-left">
+            <img style = "width: 50px;" src = "https://www.allaboutbirds.org/guide/assets/photo/308074031-480px.jpg" alt="Pigeon Bot Logo">
+            <span class="navbar-brand text-light">#18792</span>
+        </div>
+        
+        <ul class="nav navbar-nav">
+            {#if windowWidth <= smallestSize}
+                    <button bind:this = {button} on:click = {handleClick} class = "btn text-light py-3 px-4 fs-5" data-bs-toggle = "collapse" data-bs-target = "#collapseNav">
+                        <i id = "toggle-icon" class="fa-solid fa-bars"></i>       
+                    </button>
+            {:else}
+                <div class = "navbar-nav">
+                    <li><a href="#Home">Home</a></li>
+                    <li><a href="#Outreach">Outreach</a></li>
+                    <li><a href="#Achievements">Achievements</a></li>
+                    <li><a href="#Members">Members</a></li>
+                    <li><a href="#RobotHistory">Robot History</a></li>
+                    <li><a href="#ContactUs" class = "bg-purple-main">Contact Us</a></li>
+                </div>  
+            {/if}
+            
+        </ul>
+        </div>
+        
+    </nav>
+<div class = "container-fluid row">
+    <!-- Collapsible navbar (when screen is too small) -->
+    <div class = "navbar-nav collapse ps-4 bg-green-main-90 position-absolute w-100 m-0" style = "max-height: 100vh; overflow-y:scroll;" id = "collapseNav" >
             <li><a href="#Home">Home</a></li>
             <li><a href="#Outreach">Outreach</a></li>
             <li><a href="#Achievements">Achievements</a></li>
             <li><a href="#Members">Members</a></li>
             <li><a href="#RobotHistory">Robot History</a></li>
-            <li><a href="#ContactUs" class = "bg-purple-main">Contact Us</a></li>
-        </div>   
-      </ul>
+            <li><a href="#ContactUs">Contact Us</a></li>
+        </div> 
     </div>
-  </nav>
-
+</div>
   <style>
+    #collapseNav > li >a {
+        width: 100vw;
+        text-decoration: underline 0.15em rgba(0,0,0,0);
+        transition: text-decoration-color 300ms;
+    }
+    #collapseNav > li >a:hover {
+        background-color: unset !important;
+        color: white;
+        text-decoration: underline 0.15em rgba(255,255,255,1);
+
+    }
+
     a {
         color: white;
         height: 100%;
-        text-decoration: none;
-        padding: 1.5em;
-        width: 175px;
+        padding: 1.75em 1.45em 1.75em 1.45em;
+        /*width: 175px;*/
 
-        transition: 0.25s;
+        transition: 0.35s;
     }
     @media only screen and (min-width: 991px){
         a {
@@ -89,4 +119,13 @@
         width: 100%;
         float:right;
     }
+
+    #collapseNav::-webkit-scrollbar {
+        display: none;
+    }
+    #collapseNav {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+    }
+
   </style>

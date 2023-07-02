@@ -5,11 +5,16 @@ body {
 
 .bg-purple-main {
   background-color: #685A8F;
+
 }
 
 
 .bg-green-main {
   background-color: #217F7E;
+}
+
+.bg-green-main-90 {
+  background-color: rgba(33, 127, 126, 0.9);
 }
 
 
