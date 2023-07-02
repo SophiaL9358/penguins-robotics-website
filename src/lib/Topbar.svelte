@@ -5,10 +5,12 @@
 
     let smallestSize = 991;
     let windowWidth;
+    let windowHeight;
     let navVisible = false;
 
     const setTopbar = () => {
         windowWidth = window.innerWidth;
+        windowHeight = window.innerHeight;
         if (windowWidth > smallestSize) {
             document.getElementById("collapseNav").classList.remove("collapse");
             document.getElementById("collapseNav").classList.add("d-none");
@@ -17,6 +19,7 @@
             document.getElementById("collapseNav").classList.add("collapse");
             document.getElementById("collapseNav").classList.remove("d-none");
         }
+        document.getElementById("collapseNav").style.maxHeight = String(windowHeight - document.getElementById("navbar").offsetHeight) +"px";
     };
 
     onMount(setTopbar);
@@ -37,11 +40,11 @@
     };
 </script>
 <div class = "sticky-top">
-    <nav class="navbar navbar-expand-lg bg-green-main">
+    <nav class="navbar navbar-expand-lg bg-green-main" id = "navbar">
         <div class="container-fluid p-0">
         <div class="navbar-header ms-4 float-left">
             <img style = "width: 50px;" src = "https://www.allaboutbirds.org/guide/assets/photo/308074031-480px.jpg" alt="Pigeon Bot Logo">
-            <span class="navbar-brand text-light">#18792</span>
+            <span class="navbar-brand text-light fs-5">#18792</span>
         </div>
         
         <ul class="nav navbar-nav">
@@ -66,7 +69,7 @@
     </nav>
 <div class = "container-fluid row">
     <!-- Collapsible navbar (when screen is too small) -->
-    <div class = "navbar-nav collapse ps-4 bg-green-main-90 position-absolute w-100 m-0" style = "max-height: 100vh; overflow-y:scroll;" id = "collapseNav" >
+    <div class = "navbar-nav collapse ps-4 bg-green-main-90 position-absolute w-100 m-0" style = "overflow-y:scroll;" id = "collapseNav" >
             <li><a href="#Home">Home</a></li>
             <li><a href="#Outreach">Outreach</a></li>
             <li><a href="#Achievements">Achievements</a></li>
