@@ -1,8 +1,7 @@
-<div id = "Achievements"></div><br>
-<h1 class = "text-green">Achievements</h1>
+<h1 class = "title d-flex justify-content-center text-green">Achievements</h1>
 <br>
-<b>2022 - 2023</b>
-<br><br>
+<h2 class = "text-purple d-flex justify-content-center text-decoration-underline">2022 - 2023</h2>
+<br>
 <b><i><u>Union Bridge Qualifier - 3rd Qualifier (Jan. 28)</u></i></b>
 <br>
 <ul>
@@ -32,8 +31,8 @@
 <br>
 <hr>
 <br>
-<b>2021 - 2022</b>
-<br><br>
+<h2 class = "text-purple d-flex justify-content-center text-decoration-underline">2021 - 2022</h2>
+<br>
 <b><i><u>Alexandria Qualifier 4 – 3rd Qualifier (Jan. 22)</u></i></b>
 <br>
 <ul>

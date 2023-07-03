@@ -106,17 +106,17 @@
             <div class = "navbar-nav fs-6" id = "nonCollapseNav">
                 <!-- Is this bad programming? (a <a> element without a href) yes. -->
                 <!-- svelte-ignore a11y-click-events-have-key-events --> <!-- svelte-ignore a11y-missing-attribute -->
-                <li><a id = "home_btn" on:click = {() => pageOn.set("Home")}>Home</a></li>
+                <li><a href = "#top" id = "home_btn" on:click = {() => pageOn.set("Home")}>Home</a></li>
                 <!-- svelte-ignore a11y-click-events-have-key-events --> <!-- svelte-ignore a11y-missing-attribute -->
-                <li><a id = "outreach_btn" on:click = {() => pageOn.set("Outreach")} >Outreach</a></li>
+                <li><a href = "#top" id = "outreach_btn" on:click = {() => pageOn.set("Outreach")} >Outreach</a></li>
                 <!-- svelte-ignore a11y-click-events-have-key-events --> <!-- svelte-ignore a11y-missing-attribute -->
-                <li><a id = "achievements_btn" on:click = {() => pageOn.set("Achievements")}>Achievements</a></li>
+                <li><a href = "#top" id = "achievements_btn" on:click = {() => pageOn.set("Achievements")}>Achievements</a></li>
                 <!-- svelte-ignore a11y-click-events-have-key-events --> <!-- svelte-ignore a11y-missing-attribute -->
-                <li><a id = "members_btn" on:click = {() => pageOn.set("Members")}>Members</a></li>
-                    <!-- svelte-ignore a11y-click-events-have-key-events --> <!-- svelte-ignore a11y-missing-attribute -->
-                    <li><a id = "robot_history_btn" on:click = {() => pageOn.set("Robot History")}>Robot History</a></li>
+                <li><a href = "#top" id = "members_btn" on:click = {() => pageOn.set("Members")}>Members</a></li>
                 <!-- svelte-ignore a11y-click-events-have-key-events --> <!-- svelte-ignore a11y-missing-attribute -->
-                <li><a id = "contact_us_btn" on:click = {() => pageOn.set("Contact Us")} class = "bg-purple-main">Contact Us</a></li>
+                <li><a href = "#top" id = "robot_history_btn" on:click = {() => pageOn.set("Robot History")}>Robot History</a></li>
+                <!-- svelte-ignore a11y-click-events-have-key-events --> <!-- svelte-ignore a11y-missing-attribute -->
+                <li><a href = "#top" id = "contact_us_btn" on:click = {() => pageOn.set("Contact Us")} class = "bg-purple-main">Contact Us</a></li>
             </div>  
             
             
@@ -128,17 +128,17 @@
     <!-- Collapsible navbar (when screen is too small) -->
     <div class = "navbar-nav collapse ps-4 bg-green-main-90 position-absolute w-100 m-0" style = "overflow-y:scroll;" id = "collapseNav" >
             <!-- svelte-ignore a11y-click-events-have-key-events --> <!-- svelte-ignore a11y-missing-attribute -->
-            <li><a id = "home_btn_col" on:click = {() => setPageCollapse("Home")}>Home</a></li>
+            <li><a href = "#top" id = "home_btn_col" on:click = {() => setPageCollapse("Home")}>Home</a></li>
             <!-- svelte-ignore a11y-click-events-have-key-events --> <!-- svelte-ignore a11y-missing-attribute -->
-            <li><a id = "outreach_btn_col" on:click = {() => setPageCollapse("Outreach")}>Outreach</a></li>
+            <li><a href = "#top" id = "outreach_btn_col" on:click = {() => setPageCollapse("Outreach")}>Outreach</a></li>
             <!-- svelte-ignore a11y-click-events-have-key-events --> <!-- svelte-ignore a11y-missing-attribute -->
-            <li><a id = "achievements_btn_col" on:click = {() => setPageCollapse("Achievements")}>Achievements</a></li>
+            <li><a href = "#top" id = "achievements_btn_col" on:click = {() => setPageCollapse("Achievements")}>Achievements</a></li>
             <!-- svelte-ignore a11y-click-events-have-key-events --> <!-- svelte-ignore a11y-missing-attribute -->
-            <li><a id = "members_btn_col" on:click = {() => setPageCollapse("Members")}>Members</a></li>
+            <li><a href = "#top" id = "members_btn_col" on:click = {() => setPageCollapse("Members")}>Members</a></li>
             <!-- svelte-ignore a11y-click-events-have-key-events --> <!-- svelte-ignore a11y-missing-attribute -->
-            <li><a id = "robot_history_btn_col" on:click = {() => setPageCollapse("Robot History")}>Robot History</a></li>
+            <li><a href = "#top" id = "robot_history_btn_col" on:click = {() => setPageCollapse("Robot History")}>Robot History</a></li>
             <!-- svelte-ignore a11y-click-events-have-key-events --> <!-- svelte-ignore a11y-missing-attribute -->
-            <li><a id = "contact_us_btn_col" on:click = {() => setPageCollapse("Contact Us")}>Contact Us</a></li>
+            <li><a href = "#top" id = "contact_us_btn_col" on:click = {() => setPageCollapse("Contact Us")}>Contact Us</a></li>
         </div> 
     </div>
 </div>

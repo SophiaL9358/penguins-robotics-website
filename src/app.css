@@ -4,6 +4,12 @@ body {
   font-size: 1.1em;
 }
 
+.title {
+  font-family: 'Jura', sans-serif;
+  margin-top: 0.5em;
+  font-size: 2.5em;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Jura', sans-serif;
 }
@@ -14,8 +20,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 hr {
-  margin: 3em 30vw 3em 25vw;
-  width: 30vw;
+  margin: 3em 0em 3em 0em;
 }
 
 .bg-green-main {
