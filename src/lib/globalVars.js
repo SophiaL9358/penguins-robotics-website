@@ -1,1 +1,1 @@
-export const lightBlueColor = "rgb(81, 165, 242)";
+export let prefix = 'https://drive.google.com/uc?export=view&id=';

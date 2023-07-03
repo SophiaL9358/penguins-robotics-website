@@ -1,31 +1,61 @@
 <script>
-    let prefix = 'https://drive.google.com/uc?export=view&id=';
-    let pigeon_img_src = '1ZvNIz2QF88OBhgYmLasH8EaNapuO4Wky';
-    let bots_img_src = '1hk9NqIJTZelfVFsD32tjV9YmKIlfhgyi';
+    import { onMount } from "svelte";
+    import { prefix } from "../globalVars";
+
+    let pigeon_img_src = '17Vg8-uOJ3NoCJplLPk9IEeoosAcI-NMF';
+    let bots_img_src = '1OsB2g9HQQzYWigGWKUDfMhdR2NBp9Qxp';
     let team_word_img_src = '15rUD4wia2S7aSCuTuJ1U_uiotORjeUvH';
     let team_num_img_src = '1_gzYZbdRgx9voxwuWaVTnHpMYS9_HYYn';
+    let team_num_sm_img_src = '1u_M9U_ZKdz4ZEcRR07qavkpbsL0K6ZBt';
+
+    let pigeon_src = '1BndtkXiDpB-6fc0HIvoRgHvPcnZn-9Vy';
 
     let sponsors_src = ['1WAlbbA6Txy9Wn7ka7-sWiNNGNmv7foZ2', '18ltUmc47SDlWarq19ppiMNbvTU0LhvMt', '19cYuQ0bQYTdpfeeMT2YwuqcyHE5O2zRg'];
+
+    let rangeArray =[];
+    let setRange = () =>{
+        // 16 px = 1 em
+        let pigeon_width = 3.5;
+        if (window.innerWidth <= 576){
+            pigeon_width = 3;
+        }
+        let num = Math.round((window.innerWidth)/16/pigeon_width);
+        rangeArray = Array(num);
+    };
+    addEventListener("resize", setRange);
+    onMount(setRange);
+    
 </script>
 
-<div class ="row px-4 m-0" id = "team_name">
-    <div class = "col-sm-6 d-flex justify-content-end">
+<div class ="row px-4 mt-3" id = "team_name">
+    <div class = "col-sm-6 d-flex justify-content-end m-0">
         <img id = "pigeon_img" src = {prefix+pigeon_img_src} alt = '"Pigeon"'/>
     </div>
-    <div class = "col-sm-6">
+    <div class = "col-sm-6 m-0">
         <img id = "bot_img" src = {prefix+bots_img_src} alt = '"Bots"'/>
     </div>
 </div>
-<div class ="row pt-4" id = "team_num">
-    <div class = "col-sm-6 d-flex justify-content-end">
+<div class ="row pt-4 " id = "team_num">
+    <div class = "col-sm-6 d-flex justify-content-end mt-sm-none">
         <img id = "team_word_img" src = {prefix+team_word_img_src} alt = '"Team"'/>
     </div>
-    <div class = "col-sm-6">
+    <div class = "col-sm-6 mt-sm-none">
         <img id = "team_num_img" src = {prefix+team_num_img_src} alt = '"18792"'/>
+        <img id = "team_num_sm_img" src = {prefix+team_num_sm_img_src} alt = '"#18792"'/>
     </div>
 </div>
 
+
+<div style = "height: 4em;"></div>
+<span id = "pigeon_army" class = "position-absolute d-flex w-100 justify-content-center" style = "left:0; border-bottom: 3px solid rgba(0, 0, 0, 0.45);">
+    {#each rangeArray as i}
+        <img class="repeating-pigeon" src = {prefix+pigeon_src} alt = 'Pigeon'/>
+    {/each}
+</span>
+
+
 <div id = "Content" class = "mt-5">
+    <br><br><br>
     <h1 class = "text-green mb-4">About Us</h1>
     <div class = "row my-4">
         <div class = "col-sm-6">
@@ -33,7 +63,7 @@
             <br><br>
             Formed in the summer of 2020, our members are all ages from 13 to 15. Our mission is to promote STEM throughout the local and wider community.
         </div>
-        <div id = "team_img" class = "col-sm-6 d-flex justify-content-center align-items-center">
+        <div id = "team_img" class = "col-sm-6 d-flex justify-content-center align-items-center mt-sm-2">
             <img class = "w-75" src = {prefix + '1qumqEOmP_1mrEcb6EPRdA1IOnvdee9kF'} alt = "Team" >
         </div>
     </div>
@@ -74,28 +104,42 @@
 
     #team_name > div > img{
         width: 100%;
-        aspect-ratio: 2.75/1;
+        aspect-ratio: 4/1;
         max-width: 350px;
         margin-top: 1.5em;
     }
-    #team_num > div > img {
+    #team_num > div > img { /* Team 18792 part */
         width: 64%;
         aspect-ratio: 3.85/1;   
-        max-width: 250px;
+        max-width: 225px;
     }
 
+    #team_num_sm_img {
+        display: none;
+    }
+    
+    /* Content */
     .sponsors {
         max-width: 33%;
     }
-
+    
+    .repeating-pigeon{
+        aspect-ratio: 1/1.5;
+        width: 100%;
+        max-width: 2.5em;
+        margin: 0em 0.25em 0em 0.25em;
+    }
     @media only screen and (max-width: 576px){
-        #team_img {
-            margin-top: 2em;
-        }
-        #team_word_img {
+        #team_word_img, #team_num_img {
             display: none;
         }
-        #pigeon_img, #bot_img, #team_num_img {
+        #team_num_sm_img {
+            display: block;
+            aspect-ratio: 4/1 !important;
+            width: 55% !important;
+        }
+
+        #pigeon_img, #bot_img {
             padding: 0em !important;
         }
         #pigeon_img {
@@ -104,19 +148,15 @@
         #bot_img  {
             width: 65% !important;
         }
-        #team_num_img {
-            width: 50% !important;
-        }
-        .col-sm-6 {
-            display: flex;
-            justify-content: center !important;
-        }
 
         .sponsors {
             max-width: 100%;
         }
         .sponsors img{
             max-width: 50%;
+        }
+        .repeating-pigeon {
+            max-width: 2em;
         }
     }
 </style>

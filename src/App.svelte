@@ -4,6 +4,7 @@
     import Achievements from './lib/Pages/Achievements.svelte';
     import Topbar from './lib/Topbar.svelte';
     import Home from './lib/Pages/Home.svelte';
+    import Footer from './lib/Footer.svelte';
 
     const changePadding = () => {
       if (window.innerWidth <= 576){
@@ -27,6 +28,8 @@
   
   </div>
 </div>
+
+<Footer />
 
 <style>
   #Content {

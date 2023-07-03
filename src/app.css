@@ -13,12 +13,21 @@ h1, h2, h3, h4, h5, h6 {
 
 }
 
+hr {
+  margin: 3em 30vw 3em 25vw;
+  width: 30vw;
+}
+
 .bg-green-main {
   background-color: #217F7E;
 }
 
 .bg-green-main-90 {
   background-color: rgba(33, 127, 126, 0.9);
+}
+
+.bg-gray {
+  background-color: #F2F2F2;
 }
 
 .text-green {
@@ -32,4 +41,19 @@ h1, h2, h3, h4, h5, h6 {
 
 a {
   text-decoration: none;
+}
+
+@media only screen and (max-width: 576px){
+  .mt-sm-none {
+    margin-top: 0em !important;
+  }
+  .mt-sm-2 {
+    margin-top: 2em;
+  }
+  .col-sm-6, .col-sm {
+      display: flex;
+      justify-content: center !important;
+      text-align: center !important;
+  }
+  
 }
