@@ -5,6 +5,7 @@
     import Topbar from './lib/Topbar.svelte';
     import Home from './lib/Pages/Home.svelte';
     import Footer from './lib/Footer.svelte';
+    import { pageOn } from './lib/globalVars';
 
     const changePadding = () => {
       if (window.innerWidth <= 576){
@@ -18,13 +19,19 @@
     };
     onMount(changePadding);
     addEventListener("resize", changePadding);
+
 </script>
 
 <Topbar/>
 
 <div class = "d-flex justify-content-center" >
   <div id = "Content" style = "padding-top: 2em;">
-    <Home />
+    {#if $pageOn == "Home" }
+      <Home />
+    {:else if $pageOn == "Achievements"}
+      <Achievements />
+    {/if}
+    
   
   </div>
 </div>

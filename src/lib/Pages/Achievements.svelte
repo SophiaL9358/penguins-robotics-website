@@ -1,5 +1,5 @@
 <div id = "Achievements"></div><br>
-<p class = "display-6">Achievements</p>
+<h1 class = "text-green">Achievements</h1>
 <br>
 <b>2022 - 2023</b>
 <br><br>
