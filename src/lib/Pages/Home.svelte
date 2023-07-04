@@ -15,11 +15,15 @@
     let rangeArray =[];
     let setRange = () =>{
         // 16 px = 1 em
-        let pigeon_width = 3.5;
+        let pigeon_width = 3;
         if (window.innerWidth <= 576){
             pigeon_width = 3;
         }
-        let num = Math.round((window.innerWidth)/16/pigeon_width);
+        console.log("---");
+        console.log(window.innerWidth/16);
+        console.log(pigeon_width);
+        let num = Math.round(window.innerWidth/16/pigeon_width);
+        console.log(num);
         rangeArray = Array(num);
     };
     addEventListener("resize", setRange);
@@ -58,12 +62,12 @@
     <br><br><br>
     <h1 class = "text-green mb-4">About Us</h1>
     <div class = "row my-4">
-        <div class = "col-sm-6">
+        <div class = "col-lg-6 mb-4">
             Team 18792, Pigeon Bots, is a First Tech Challenge team based in Rockville Maryland.
             <br><br>
             Formed in the summer of 2020, our members are all ages from 13 to 15. Our mission is to promote STEM throughout the local and wider community.
         </div>
-        <div id = "team_img" class = "col-sm-6 d-flex justify-content-center align-items-center mt-sm-2">
+        <div id = "team_img" class = "col-lg-6 d-flex justify-content-center align-items-center">
             <img class = "w-75" src = {prefix + '1qumqEOmP_1mrEcb6EPRdA1IOnvdee9kF'} alt = "Team" >
         </div>
     </div>
@@ -126,7 +130,7 @@
     .repeating-pigeon{
         aspect-ratio: 1/1.5;
         width: 100%;
-        max-width: 2.5em;
+        max-width: 2em;
         margin: 0em 0.25em 0em 0.25em;
     }
     @media only screen and (max-width: 576px){

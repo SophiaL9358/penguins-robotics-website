@@ -1,6 +1,11 @@
-<h1 class = "title d-flex justify-content-center text-green">Achievements</h1>
+<script>
+
+    import { title_class_def, title_secondary_class_def } from "../globalVars";
+
+</script>
+<h1 class = {title_class_def}>Achievements</h1>
 <br>
-<h2 class = "text-purple d-flex justify-content-center text-decoration-underline">2022 - 2023</h2>
+<h2 class = {title_secondary_class_def}>2022 - 2023</h2>
 <br>
 <b><i><u>Union Bridge Qualifier - 3rd Qualifier (Jan. 28)</u></i></b>
 <br>
@@ -31,7 +36,7 @@
 <br>
 <hr>
 <br>
-<h2 class = "text-purple d-flex justify-content-center text-decoration-underline">2021 - 2022</h2>
+<h2 class = {title_secondary_class_def}>2021 - 2022</h2>
 <br>
 <b><i><u>Alexandria Qualifier 4 – 3rd Qualifier (Jan. 22)</u></i></b>
 <br>

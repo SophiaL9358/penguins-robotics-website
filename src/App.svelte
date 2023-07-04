@@ -29,6 +29,8 @@
   <div id = "Content" style = "padding-top: 2em;">
     {#if $pageOn == "Home" }
       <Home />
+    {:else if $pageOn == "Outreach"}
+      <Outreach />
     {:else if $pageOn == "Achievements"}
       <Achievements />
     {/if}
