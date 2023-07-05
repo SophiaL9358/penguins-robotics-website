@@ -1,6 +1,7 @@
 <script>
     import { onMount } from "svelte";
     import { prefix } from "../globalVars";
+    import Carousel from "../General/Carousel.svelte";
 
     let pigeon_img_src = '17Vg8-uOJ3NoCJplLPk9IEeoosAcI-NMF';
     let bots_img_src = '1OsB2g9HQQzYWigGWKUDfMhdR2NBp9Qxp';
@@ -10,7 +11,14 @@
 
     let pigeon_src = '1BndtkXiDpB-6fc0HIvoRgHvPcnZn-9Vy';
 
-    let sponsors_src = ['1WAlbbA6Txy9Wn7ka7-sWiNNGNmv7foZ2', '18ltUmc47SDlWarq19ppiMNbvTU0LhvMt', '19cYuQ0bQYTdpfeeMT2YwuqcyHE5O2zRg'];
+    let carousel_src = ['15JKO906eso44iEdOfQ8OanL4igkqqStb', '1Io-DTa9BKHdN4S0FUc_kyx4rfZ57-TuL', '1huSPWpP7tCeM512dD3JUxW0yDCPuG5ff', '1UAZR6Q7VB6Ep1LIYxy-6ZrymG_8hcULx']
+    let sponsors_src = [
+        {   link: 'https://www.caci.com/',
+            src: '1WAlbbA6Txy9Wn7ka7-sWiNNGNmv7foZ2'}, 
+        {   link: 'https://www.potomacoaktutoring.com/',
+            src: '18ltUmc47SDlWarq19ppiMNbvTU0LhvMt'},
+        {   link:'https://www.codeadvantage.org/',
+            src: '19cYuQ0bQYTdpfeeMT2YwuqcyHE5O2zRg'}];
 
     let rangeArray =[];
     let setRange = () =>{
@@ -19,16 +27,25 @@
         if (window.innerWidth <= 576){
             pigeon_width = 3;
         }
-        console.log("---");
-        console.log(window.innerWidth/16);
-        console.log(pigeon_width);
         let num = Math.round(window.innerWidth/16/pigeon_width);
-        console.log(num);
         rangeArray = Array(num);
     };
     addEventListener("resize", setRange);
     onMount(setRange);
     
+    const copyEmail = () => {
+        navigator.clipboard.writeText("penguinsroboticsusa@gmail.com").then(
+            (message) => {
+                jQuery("#copied_alert_button").removeClass("d-none");
+            }
+        )
+    };
+
+    const removeAlert = () => {
+        jQuery("#copied_alert_button").addClass("d-none");
+        
+    };
+        
 </script>
 
 <div class ="row px-4 mt-3" id = "team_name">
@@ -67,8 +84,8 @@
             <br><br>
             Formed in the summer of 2020, our members are all ages from 13 to 15. Our mission is to promote STEM throughout the local and wider community.
         </div>
-        <div id = "team_img" class = "col-lg-6 d-flex justify-content-center align-items-center">
-            <img class = "w-75" src = {prefix + '1qumqEOmP_1mrEcb6EPRdA1IOnvdee9kF'} alt = "Team" >
+        <div id = "team_img" class = "col-lg-6 d-flex justify-content-center align-items-center px-5">
+            <Carousel images_info = {carousel_src} />
         </div>
     </div>
     <hr>
@@ -76,20 +93,27 @@
     <div>
         Want to support us or our mission? See the links below!
         <br>
-        <button class = "btn btn-outline-success mt-4">
-            Donate to our GoFundMe!
-        </button>
+        <a target = "_blank" href = "https://www.gofundme.com/f/help-penguins-robotics-pay-for-parts?qid=4afdc28d586378d0c5c9ce0c4f5515c0">
+            <button class = "btn btn-outline-success mt-4">
+                Donate to our GoFundMe!
+            </button>
+        </a>
         <br>
-        <button class = "btn btn-outline-primary mt-2">
-            Email us at penguinsroboticsusa@gmail.com
+        <button class = "btn btn-outline-primary mt-2" on:click = {copyEmail}>
+            Email us at penguinsroboticsusa@gmail.com (click to copy email)
         </button>
+        <div id = "copied_alert_button" class = "d-none alert alert-success alert-dismissible fade show mt-2 fs-6" > <!-- Copied alert -->
+            <button type = "button" class = "btn-close" on:click = {removeAlert}></button>
+            <strong>Email copied!</strong>
+        </div>
+        
     </div>
     <hr>
     <h1 class = "text-green my-4">Current Sponsors</h1>   
     <div class = "row">
         {#each sponsors_src as sponsor_src, i}
         <div class = "col-sm d-flex justify-content-center align-items-center sponsors">
-            <img class = "w-75" src = {prefix + sponsor_src} alt = {'sponsor'+String(i)}>
+            <a href = {sponsor_src.link} target = "_blank"><img class = "w-75" src = {prefix + sponsor_src.src} alt = {'sponsor'+String(i)}></a>
         </div>
         {/each}
     </div> 

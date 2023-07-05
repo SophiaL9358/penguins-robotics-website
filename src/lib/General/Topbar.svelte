@@ -1,7 +1,7 @@
 <script>
     import { onMount } from "svelte";
     import jQuery from 'jquery';
-    import { pageOn, text_green, text_purple } from "./globalVars";
+    import { pageOn, prefix, text_green, text_purple } from "../globalVars";
 
 
     let smallestSize = 991;
@@ -28,9 +28,7 @@
     };
 
     const setPageCollapse = (page) => {
-        console.log($pageOn);
         pageOn.update(element => page);
-        console.log($pageOn);
 
         jQuery('#collapseButton').trigger('click');
         setLink();
@@ -40,7 +38,6 @@
         setLink();
     }
     const setLink = () => {
-        console.log('HERE');
         let pages = ["Home", "Outreach", "Achievements", "Members", "Robot History", "Contact Us"];
         let ids = ["home_btn", "outreach_btn", "achievements_btn", "members_btn", "robot_history_btn", "contact_us_btn"];
 
@@ -62,7 +59,6 @@
         
         document.getElementById(id).classList.add("bg-light");
         document.getElementById(id+"_col").style.textDecoration = "underline 0.15em rgba(255,255,255,1)";
-        console.log(id+"_col")
     };
 
     onMount(() =>{
@@ -93,8 +89,8 @@
     <nav class="navbar navbar-expand-lg bg-green-main" id = "navbar">
         <div class="container-fluid p-0">
         <div class="navbar-header ms-4 float-left">
-            <img style = "width: 50px;" src = "https://www.allaboutbirds.org/guide/assets/photo/308074031-480px.jpg" alt="Pigeon Bot Logo">
-            <span class="navbar-brand text-light fs-5">#18792</span>
+            <img style = "width: 35px;" src = {prefix+"1uaN1SFx65Ws2EC3n5IpsjJ3RMvOM3-4l"} alt="Pigeon Bot Logo">
+            <span class="navbar-brand text-light fs-5 ms-1">#18792</span>
         </div>
         
         <ul class="nav navbar-nav">

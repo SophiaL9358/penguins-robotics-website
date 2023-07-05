@@ -2,10 +2,11 @@
     import { onMount } from 'svelte';
     import Outreach from './lib/Pages/Outreach.svelte';
     import Achievements from './lib/Pages/Achievements.svelte';
-    import Topbar from './lib/Topbar.svelte';
+    import Topbar from './lib/General/Topbar.svelte';
     import Home from './lib/Pages/Home.svelte';
-    import Footer from './lib/Footer.svelte';
+    import Footer from './lib/General/Footer.svelte';
     import { pageOn } from './lib/globalVars';
+    import ContactUs from './lib/Pages/ContactUs.svelte';
 
     const changePadding = () => {
       if (window.innerWidth <= 576){
@@ -20,6 +21,19 @@
     onMount(changePadding);
     addEventListener("resize", changePadding);
 
+    $: if (document.getElementById("Home") != null && $pageOn != "") {
+      const page_ids = ["Home", "Outreach", "Achievements", "Contact Us"];
+
+      page_ids.forEach((page_id) => {
+        document.getElementById(page_id).style.display = "none";
+      });
+      if (page_ids.indexOf($pageOn) != -1){
+        document.getElementById($pageOn).style.display = "block";
+      } else {
+        document.getElementById("Home").style.display = "block";
+      }
+    }
+
 </script>
 
 <div id = "top"></div>
@@ -27,15 +41,19 @@
 
 <div class = "d-flex justify-content-center" >
   <div id = "Content" style = "padding-top: 2em;">
-    {#if $pageOn == "Home" }
+    <div id = "Home">
       <Home />
-    {:else if $pageOn == "Outreach"}
+    </div>
+    <div id = "Outreach">
       <Outreach />
-    {:else if $pageOn == "Achievements"}
+    </div>
+    <div id = "Achievements">
       <Achievements />
-    {/if}
-    
-  
+    </div>
+    <div id = "Contact Us">
+      <ContactUs />
+    </div>
+
   </div>
 </div>
 
