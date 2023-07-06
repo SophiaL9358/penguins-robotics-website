@@ -17,7 +17,7 @@
 </div>
 {:else}
 <div class = "d-flex justify-content-center align-items-center h-100" >
-    <div id = {spec_carousel_id} class = "carousel slide bg-gray" data-bs-ride = "carousel" style = "width: 100%;">
+    <div id = {spec_carousel_id} class = "carousel slide bg-gray" style = "width: 100%;"> <!-- Auto slide: data-bs-ride = "carousel"  -->
         <!-- Indicators -->
         <div class = "carousel-indicators" >
             {#each images_info as x, i}
@@ -30,15 +30,15 @@
         </div> 
     
         <!-- Content -->
-        <div class = "carousel-inner d-flex align-items-center" style = "height: calc(20vw + 150px);"> <!-- max-height: 300px; max-idth: 500px; -->
+        <div class = "carousel-inner d-flex align-items-center"> <!-- max-height: 300px; max-idth: 500px; -->
             {#each images_info as image_info, i}
                 {#if i == 0}
-                <div class = "carousel-item active" style = "vertical-align: middle;">
-                    <img src = {prefix + image_info} alt = {"Slide Img "+i} class = "d-block w-100" style = "height: (20vw + 150px); marigin-left: auto; margin-right: auto;"/>
+                <div class = "carousel-item active" style = "vertical-align: middle; w-100">
+                    <img src = {prefix + image_info} alt = {"Slide Img "+i} class = "d-block w-100" style = "marigin-left: auto; margin-right: auto;"/>
                 </div>
                 {:else}
-                <div class = "carousel-item" style = "vertical-align: middle;">
-                    <img src = {prefix + image_info} alt = {"Slide Img "+i} class = "d-block w-100" style = "height: (20vw + 150px); marigin-left: auto; margin-right: auto;"/>
+                <div class = "carousel-item" style = "vertical-align: middle; w-100">
+                    <img src = {prefix + image_info} alt = {"Slide Img "+i} class = "d-block w-100" style = "marigin-left: auto; margin-right: auto;"/>
                 </div>
                 {/if}
             {/each}
@@ -59,7 +59,7 @@
         background-color: rgba(255, 255, 255, 0.75);
     }
     .bg-dark-transparent {
-        background-color: rgba(0, 0, 0, 0.85);
+        background-color: rgba(255, 255, 255, 0.85);
     }
     .carousel-control {
         transition: 0.25s;
