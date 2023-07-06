@@ -102,17 +102,17 @@
             <div class = "navbar-nav fs-6" id = "nonCollapseNav">
                 <!-- Is this bad programming? (a <a> element without a href) yes. -->
                 <!-- svelte-ignore a11y-click-events-have-key-events --> <!-- svelte-ignore a11y-missing-attribute -->
-                <li><a href = "#top" id = "home_btn" on:click = {() => pageOn.set("Home")}>Home</a></li>
+                <li><a href = "#" id = "home_btn" on:click = {() => pageOn.set("Home")}>Home</a></li>
                 <!-- svelte-ignore a11y-click-events-have-key-events --> <!-- svelte-ignore a11y-missing-attribute -->
-                <li><a href = "#top" id = "outreach_btn" on:click = {() => pageOn.set("Outreach")} >Outreach</a></li>
+                <li><a href = "#" id = "outreach_btn" on:click = {() => pageOn.set("Outreach")} >Outreach</a></li>
                 <!-- svelte-ignore a11y-click-events-have-key-events --> <!-- svelte-ignore a11y-missing-attribute -->
-                <li><a href = "#top" id = "achievements_btn" on:click = {() => pageOn.set("Achievements")}>Achievements</a></li>
+                <li><a href = "#" id = "achievements_btn" on:click = {() => pageOn.set("Achievements")}>Achievements</a></li>
                 <!-- svelte-ignore a11y-click-events-have-key-events --> <!-- svelte-ignore a11y-missing-attribute -->
-                <li><a href = "#top" id = "members_btn" on:click = {() => pageOn.set("Members")}>Members</a></li>
+                <li><a href = "#" id = "members_btn" on:click = {() => pageOn.set("Members")}>Members</a></li>
                 <!-- svelte-ignore a11y-click-events-have-key-events --> <!-- svelte-ignore a11y-missing-attribute -->
-                <li><a href = "#top" id = "robot_history_btn" on:click = {() => pageOn.set("Robot History")}>Robot History</a></li>
+                <li><a href = "#" id = "robot_history_btn" on:click = {() => pageOn.set("Robot History")}>Robot History</a></li>
                 <!-- svelte-ignore a11y-click-events-have-key-events --> <!-- svelte-ignore a11y-missing-attribute -->
-                <li><a href = "#top" id = "contact_us_btn" on:click = {() => pageOn.set("Contact Us")} class = "bg-purple-main">Contact Us</a></li>
+                <li><a href = "#" id = "contact_us_btn" on:click = {() => pageOn.set("Contact Us")} class = "bg-purple-main">Contact Us</a></li>
             </div>  
             
             

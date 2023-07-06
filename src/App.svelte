@@ -7,6 +7,7 @@
     import Footer from './lib/General/Footer.svelte';
     import { pageOn } from './lib/globalVars';
     import ContactUs from './lib/Pages/ContactUs.svelte';
+    import RobotHistory from './lib/Pages/RobotHistory.svelte';
 
     const changePadding = () => {
       if (window.innerWidth <= 576){
@@ -18,17 +19,22 @@
 
       }
     };
-    onMount(changePadding);
+    onMount(() => {
+      changePadding();
+      pageOn.set(localStorage.getItem("pigeonBotPageOn"));
+      console.log("what");
+    });
     addEventListener("resize", changePadding);
 
     $: if (document.getElementById("Home") != null && $pageOn != "") {
-      const page_ids = ["Home", "Outreach", "Achievements", "Contact Us"];
+      const page_ids = ["Home", "Outreach", "Achievements", "Robot History", "Contact Us"];
 
       page_ids.forEach((page_id) => {
         document.getElementById(page_id).style.display = "none";
       });
       if (page_ids.indexOf($pageOn) != -1){
         document.getElementById($pageOn).style.display = "block";
+        localStorage.setItem("pigeonBotPageOn", $pageOn);
       } else {
         document.getElementById("Home").style.display = "block";
       }
@@ -36,7 +42,6 @@
 
 </script>
 
-<div id = "top"></div>
 <Topbar/>
 
 <div class = "d-flex justify-content-center" >
@@ -49,6 +54,9 @@
     </div>
     <div id = "Achievements">
       <Achievements />
+    </div>
+    <div id = "Robot History">
+      <RobotHistory />
     </div>
     <div id = "Contact Us">
       <ContactUs />

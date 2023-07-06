@@ -1,7 +1,7 @@
 body {
   margin: 0;
   font-family: 'Gafata', sans-serif;
-  font-size: 1.15em;
+  font-size: 1.25em;
 }
 
 .title {
@@ -61,4 +61,8 @@ a {
       text-align: center !important;
   }
   
+  body {
+    font-size: 1.15em;
+
+  }
 }

@@ -28,7 +28,7 @@
 <style>
     i {
         color: black;
-        font-size: 1.4em;
+        font-size: 1.3em;
         margin: 0 0.75em 0 0.75em;
     }
 </style>

@@ -27,7 +27,7 @@
         if (window.innerWidth <= 576){
             pigeon_width = 3;
         }
-        let num = Math.round(window.innerWidth/16/pigeon_width);
+        let num = Math.round(window.innerWidth/16/pigeon_width)-2;
         rangeArray = Array(num);
     };
     addEventListener("resize", setRange);
