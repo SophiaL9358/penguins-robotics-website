@@ -35,6 +35,7 @@
       if (page_ids.indexOf($pageOn) != -1){
         document.getElementById($pageOn).style.display = "block";
         localStorage.setItem("pigeonBotPageOn", $pageOn);
+        window.scrollTo(0,0);
       } else {
         document.getElementById("Home").style.display = "block";
       }
