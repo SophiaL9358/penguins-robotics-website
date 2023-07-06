@@ -1,7 +1,7 @@
 <script>
     import { onMount } from "svelte";
     import jQuery from 'jquery';
-    import { pageOn, prefix, text_green, text_purple } from "../globalVars";
+    import { localStorageKey, pageOn, prefix, text_green, text_purple } from "../globalVars";
 
 
     let smallestSize = 991;
@@ -51,20 +51,22 @@
         });
 
         let id = ids[index];
-        if (id != "Contact Us") {
-            document.getElementById(id).style.color = text_purple;
-        } else {
-            document.getElementById(id).style.color = text_green;
+        if (id != undefined && id != null){
+            if (id != "Contact Us") {
+                document.getElementById(id).style.color = text_purple;
+            } else {
+                document.getElementById(id).style.color = text_green;
+            }
+
+            document.getElementById(id).classList.add("bg-light");
+            document.getElementById(id+"_col").style.textDecoration = "underline 0.15em rgba(255,255,255,1)";
         }
         
-        document.getElementById(id).classList.add("bg-light");
-        document.getElementById(id+"_col").style.textDecoration = "underline 0.15em rgba(255,255,255,1)";
     };
 
     onMount(() =>{
         setTopbar();
-        pageOn.set("");
-        pageOn.set("Home");
+        setLink();
 
     });
     addEventListener("resize", setTopbar);

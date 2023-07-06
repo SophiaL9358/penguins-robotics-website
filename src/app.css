@@ -34,6 +34,9 @@ hr {
 .bg-gray {
   background-color: #F2F2F2;
 }
+.bg-dark-gray {
+  background-color: #b6b6b6;
+}
 
 .text-green {
   color: #126F6E;

@@ -13,7 +13,7 @@
 </script>
 {#if images_info.length <= 1}
 <div class = "d-flex justify-content-center align-items-center h-100" style = "vertical-align">
-    <img src = {prefix + images_info[0]} alt = "Slide Img 0" class = "d-block w-100 m-3"/>
+    <img src = {prefix + images_info[0]} alt = "Slide Img 0" class = "d-block m-3" style = "width: 90%;"/>
 </div>
 {:else}
 <div class = "d-flex justify-content-center align-items-center h-100" >
