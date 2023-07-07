@@ -85,6 +85,7 @@
 </script>
 
 <h1 class = {title_class_def}>Members</h1>
+<p class = "d-flex justify-content-center">Click on a person's profile to learn more!</p>
 <br>
 <div class = "row d-flex justify-content-center">
     {#each people as person, i}
