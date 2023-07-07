@@ -5,14 +5,12 @@
     import Topbar from './lib/General/Topbar.svelte';
     import Home from './lib/Pages/Home.svelte';
     import Footer from './lib/General/Footer.svelte';
-    import { pageOn } from './lib/globalVars';
+    import { localStorageKey, pageOn } from './lib/globalVars';
     import ContactUs from './lib/Pages/ContactUs.svelte';
     import RobotHistory from './lib/Pages/RobotHistory.svelte';
     import Members from './lib/Pages/Members.svelte';
 
     const changePadding = () => {
-      console.log(window.scrollY, document.body.scrollHeight);
-
       if (window.innerWidth <= 576){
         document.getElementById("Content").classList.remove("px-5");
         document.getElementById("Content").classList.add("px-4");

@@ -12,3 +12,5 @@ export let title_class_def = "title d-flex justify-content-center text-green";
 export let title_secondary_class_def = "text-purple d-flex justify-content-center text-decoration-underline";
 
 export let carousel_id = writable(0);
+
+export let localStorageKey = "pigeonBotPageOn";

@@ -17,7 +17,7 @@
         },
         {
             name: "Christopher",
-            role: "Builder/Engineering NB",
+            role: "Build/Engineering NB",
             des: "Hi! My name is Christopher and I’m a 8th grader at Cabin John Middle School.  This is my 2nd year in FTC and I am one of the drivers, builders, and engineering notebook writers.  I like to juggle and play Roblox.",
             image_src: "1dlKLbHvGEPsFWVf2kyppWg4ut8iyl11E"
         },
@@ -111,10 +111,10 @@
             <div class = "modal-body">
                 <div class = "container-fluid">
                     <div class = "row">
-                        <div class = "col-md-5 d-flex p-3 justify-content-center" style = "">
+                        <div class = "col-lg-5 d-flex p-3 justify-content-center" style = "">
                             <img src = {prefix + $modal_info.image_src} alt = "Member's Photo" style = "object-fit: cover; width: 100%; max-width: 300px; min-width: 300px;" />
                         </div>
-                        <div class = "col-md-7 p-3">
+                        <div class = "col-lg-7 p-3">
                             <p><b>Name:</b> {$modal_info.name}</p>
                             <p><b>Role:</b> {$modal_info.role}</p>
                             <p>{$modal_info.des}</p>

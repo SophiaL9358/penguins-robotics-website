@@ -99,9 +99,16 @@
             </button>
         </a>
         <br>
+        <a target = "_blank" href = "mailto:penguinsrobotics@gmail.com">
+            <button class = "btn btn-outline-primary mt-2">
+                Email us!
+            </button>
+        </a>
+        <br>
         <button class = "btn btn-outline-primary mt-2" on:click = {copyEmail}>
-            Email us at penguinsroboticsusa@gmail.com (click to copy email)
+            Copy our email (penguinsroboticsusa@gmail.com)
         </button>
+        
         <div id = "copied_alert_button" class = "d-none alert alert-success alert-dismissible fade show mt-2 fs-6" > <!-- Copied alert -->
             <button type = "button" class = "btn-close" on:click = {removeAlert}></button>
             <strong>Email copied!</strong>
