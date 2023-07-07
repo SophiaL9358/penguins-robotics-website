@@ -5,12 +5,14 @@
     import Topbar from './lib/General/Topbar.svelte';
     import Home from './lib/Pages/Home.svelte';
     import Footer from './lib/General/Footer.svelte';
-    import { localStorageKey, pageOn } from './lib/globalVars';
+    import { pageOn } from './lib/globalVars';
     import ContactUs from './lib/Pages/ContactUs.svelte';
     import RobotHistory from './lib/Pages/RobotHistory.svelte';
     import Members from './lib/Pages/Members.svelte';
 
     const changePadding = () => {
+      console.log(window.scrollY, document.body.scrollHeight);
+
       if (window.innerWidth <= 576){
         document.getElementById("Content").classList.remove("px-5");
         document.getElementById("Content").classList.add("px-4");
@@ -22,10 +24,8 @@
     };
     onMount(() => {
       changePadding();
-      if (localStorage.getItem(localStorageKey) == null || localStorage.getItem(localStorageKey) == "") {
-          localStorage.setItem(localStorageKey, "Home");
-      }
-      pageOn.set(localStorage.getItem(localStorageKey));
+      pageOn.set("");
+      pageOn.set("Home");
     });
     addEventListener("resize", changePadding);
 
@@ -36,13 +36,18 @@
         document.getElementById(page_id).style.display = "none";
       });
       if (page_ids.indexOf($pageOn) != -1){
-        localStorage.setItem(localStorageKey, $pageOn);
         document.getElementById($pageOn).style.display = "block";
         window.scrollTo(0,0);
       } else {
         document.getElementById("Home").style.display = "block";
       }
     }
+
+    let scrollYPos = 0;
+
+    jQuery(window).on("scroll", () => {
+      scrollYPos = window.scrollY;
+    });
 
 </script>
 
@@ -72,9 +77,25 @@
   </div>
 </div>
 
+{#if scrollYPos > 100}
+  <button class = "btn position-fixed rounded rounded-circle" id = "top-btn" on:click = {() => {window.scrollTo(0,0)}}>
+    <i class="fa-solid fa-angle-up fs-1 text-light"></i>
+  </button>
+{/if}
 <Footer />
 
 <style>
+  #top-btn {
+    right: 1.5em;
+    bottom: 1.5em;
+    height: 4em;
+    width: 4em;
+    background-color: rgba(0, 0, 0, 0.35);
+  }
+  #top-btn:hover {
+    color: black !important;
+  }
+
   #Content {
     max-width: 85%;
   }

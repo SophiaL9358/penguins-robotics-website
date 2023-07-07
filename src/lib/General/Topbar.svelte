@@ -1,7 +1,7 @@
 <script>
     import { onMount } from "svelte";
     import jQuery from 'jquery';
-    import { localStorageKey, pageOn, prefix, text_green, text_purple } from "../globalVars";
+    import { pageOn, prefix, text_green, text_purple } from "../globalVars";
 
 
     let smallestSize = 991;
